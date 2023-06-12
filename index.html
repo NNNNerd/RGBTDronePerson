@@ -1,1 +1,339 @@
+<!doctype html>
+<html>
+<head>
 
+	<title>RGBTDronePerson</title>
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<link href="css/main.css" media="screen" rel="stylesheet" type="text/css"/>
+	<link href="css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
+	<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+			CommonHTML: { linebreaks: { automatic: true } },
+			"HTML-CSS": { linebreaks: { automatic: true } },
+				 SVG: { linebreaks: { automatic: true } }
+			});
+	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	
+</head>
+
+<body>
+
+<div class="menu-container noselect">
+	<div class="menu">
+		<table class="menu-table">
+			<tr>
+				<td>
+					<div class="logo">
+						<a href="javascript:void(0)">RGBTDronePerson</a>
+					</div>
+				</td>
+				<td>
+					<div class="menu-items">
+						<a class="menu-highlight">Overview</a>
+						<a href="https://github.com/NNNNerd/RGBTDronePerson">GitHub</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="content-container">
+	<div class="content">
+		<table class="content-table">
+		      <h1 style="text-align:center; margin-top:60px; font-weight: bold; font-size: 35px;">
+				Drone-based RGBT Tiny Person Detection </h1>
+	        
+				<p style="text-align:center; margin-bottom:15px; margin-top:20px; font-size: 18px;">
+					<a href="https://github.com/NNNNerd" style="color: #0088CC">Yan Zhang<script type="math/tex">^{a,*}</script>, </a>
+					<a href="https://github.com/Chasel-Tsui" style="color: #0088CC">Chang Xu<script type="math/tex">^{a,*}</script>, </a>
+					<a href="http://www.captain-whu.com/yangwen_En.html" style="color: #0088CC">Wen Yang<script type="math/tex">^{a,**}</script>, </a>
+                    Guangjun He<script type="math/tex">^b</script>,
+                    <a href="https://github.com/levenberg" style="color: #0088CC">Huai Yu<script type="math/tex">^a</script>,</a>
+                    <a href="http://dvs-whu.cn/" style="color: #0088CC">Lei Yu<script type="math/tex">^a</script>,</a> 
+					<a href="http://www.captain-whu.com/xia_En.html" style="color: #0088CC">Gui-Song Xia<script type="math/tex">^{c}</script>, </a> <br>
+					<!-- <a href="http://www.dsi.unive.it/~pelillo/" style="color: #0088CC">Marcello Pelillo<script type="math/tex">^3</script></a> <br> -->
+                     
+					<a target="_blank" href="https://dsp.whu.edu.cn/" style="color: #0088CC; font-style: italic"><script type="math/tex">^a</script>School of Electronic Information, Wuhan University, Wuhan, China</a><br>
+                    <a target="_blank" href="https://dsp.whu.edu.cn/" style="color: #0088CC; font-style: italic"><script type="math/tex">^b</script>The State Key Laboratory of Space-Ground Integrated Information Technology, Beijing, China</a><br>
+					<a target="_blank" href="http://captain.whu.edu.cn/" style="color: #0088CC; font-style: italic"><script type="math/tex">^c</script>School of Computer Science and the State Key Lab. LIESMARS, Wuhan University, Wuhan, China</a>  <br>
+
+				</p>	 
+				<p style="text-align:center; margin-bottom:15px; margin-top:20px; font-size: 18px;"> 
+					<a href="" style="color: hsl(17, 100%, 40%)"> [Paper]
+					</a>
+					<a href="https://github.com/NNNNerd/mmdet-rgbtdroneperson" style="color: hsl(17, 100%, 40%)"> [Data and Code]
+					</a>
+				</p>
+		
+			
+			<tr>
+				<!-- <td colspan="1"> -->
+					<h2 class="add-top-margin">Abstract</h2>
+					<hr>
+				<!-- </td> -->
+			</tr>
+			<tr>
+					<!-- <td colspan="1"> -->
+
+				<p class="text" style="text-align:justify;">
+					RGBT person detection benefits numerous vital applications like surveillance, search, and rescue.
+                    Meanwhile, drones can capture images holding broad perspectives and large searching regions per
+                    frame, which can notably improve the efficacy of large-scale search and rescue missions. In this work,
+                    we leverage the advantages of drone-based vision for RGBT person detection. The drone-based RGBT
+                    person detection task brings interesting challenges to existing cross-modality object detectors, e.g.,
+                    tiny sizes of objects, modality-space imbalance, and position shifts. Observing that there is a lack
+                    of data and customized detectors for drone-based RGBT person detection, we contribute two new
+                    datasets and design a novel detector. The data contribution is two-fold. For one, we construct the first
+                    large-scale drone-based RGBT person detection benchmark RGBTDronePerson, which contains 6,125
+                    pairs of RGBT images and 70,880 instances. Images are captured in various scenes and under various
+                    illumination and weather conditions. For another, we annotate the VTUAV tracking dataset and obtain
+                    its object detection version, named VTUAV-det. To tackle the challenges raised by this task, we propose
+                    a Quality-aware RGBT Fusion Detector (QFDet). Firstly, we design a Quality-aware Learning Strategy
+                    (QLS) to provide sufficient supervision for tiny objects while focusing on high-quality samples, in
+                    which a Quality-Aware Factor (QAF) is designed to measure the quality. Moreover, a Quality-aware
+                    Cross-modality Enhancement module (QCE) is proposed to predict a QAF map for each modality,
+                    which not only indicates the reliability of each modality but also highlights regions where objects are
+                    more likely to appear. Our QFDet remarkably boosts the detection performance over tiny and small
+                    objects, surpassing the strong baseline on mAP<script type="math/tex">^{tiny}_{50}</script> by 6.57 points 
+                    on RGBTDronePerson and mAP<script type="math/tex">_{s}</script> by 3.80 points on VTUAV-det. 
+				</p>
+					<!-- </td> -->
+			</tr>
+
+			<tr>
+				<!-- <td colspan="1"> -->
+					<h2 class="add-top-margin">Introduction</h2>
+					<hr>
+				<!-- </td> -->
+			</tr>
+
+			<tr>
+				<p class="text" style="text-align:justify;">
+					Person detection is a crucial technology with wide applications in security, surveillance, crowd control, 
+					and search & rescue.  Person detection has achieved significant progress in the deep learning era. In particular, 
+					the recently emerging multispectral person detection techniques make up for many scenarios that fail to be 
+					tackled by RGB-based techniques. For example, the introduction of thermal modality alleviates the problem of 
+					poor performance under severe illumination conditions in RGB-based methods. Simultaneously leveraging RGB and 
+					Thermal (RGBT) images for person detection integrates the complementary advantages of both modalities. The 
+					drone-based images capture scenes at a long distance and provide a bird's eye view in a broad range. Drones thus 
+					possess the merit of spatial flexibility. RGBT data, as discussed above, provides around-the-clock useful 
+					information and possesses the merit of time flexibility. Therefore, the combination of RGBT data and drone-based 
+					images creates time-spatial flexibility, which is desperately needed in search & rescue. Unfortunately, there is 
+					no drone-based RGBT person detection benchmark currently, hindering the related research and applications. To 
+					this end, this paper proposes a large-scale drone-based RGBT person detection benchmark, coming with two datasets. 
+					The first dataset is newly collected by drone-based RGBT cameras from various scenarios, named ''RGBTDronePerson'', 
+					which contains 6,125 pairs of RGBT images and 70,880 instances. The second dataset is based on the large-scale 
+					visible-thermal UAV tracking benchmark, VTUAV, we re-annotate it and obtain its detection version called 
+					''VTUAV-det'', containing a total of 11,392 pairs of training images and 5,378 pairs of testing image. Examples 
+					of RGBTDronePerson and VTUAV-det data are shown in Figure 1. 
+          <br>
+          <br>
+          The drone-based RGBT person detection task comprises 3 notable challenges, tiny object sizes, modality-space imbalance, 
+		  and prominent position shifts, as shown in Figure 2. 
+				</p>
+			</tr>
+
+			<tr>
+				<td>
+					<div>
+					<img class="center" src="./images/1_fig1.jpg" width="660" /> <br>
+					<p class="image-caption">
+						Figure 1. Examples of drone-based person detection data.
+						RGBTDronePerson and VTUAV-det are two datasets collected
+						in this paper. Icons represent different challenges: ''T'' denotes
+						tiny object; ''TI'' denotes thermal imbalance; ''I'' denotes
+						illumination imbalance; ''S'' denotes position shift.
+					</p>				
+					</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<div>
+					<img class="center" src="./images/3challenges.png" width="1000" /> <br>
+					<p class="image-caption">
+						Figure 2. Challenges put forward by RGBTDronePerson. (a) The object size distribution shows that the majority 
+						of RGBTDronePerson consists of tiny objects (sizes smaller than 20). (b) The image quality for person detection 
+						varies along the reference line. The quality curves are drawn intuitively for a straightforward demonstration. 
+						In the upper left thermal image, the ground on the right side absorbs heat, reaching similar thermal radiation 
+						with human objects. Therefore, persons are concealed in this area. In the bottom right visible image, persons 
+						are invisible in the dark area. (c) The bounding boxes of thermal images shift away from objects in visible images.
+					</p>				
+					</div>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+				<p class="text" style="text-align:justify;">
+					To tackle these problems, especially the challenging tiny object detection and modality-space imbalance issues, we
+					design a novel Quality-aware RGBT Fusion Detector (QFDet).
+					In summary, the contributions of this paper are listed as follows:
+					<ul style="font-weight:normal; text-align:justify;">
+							<li> We construct a large-scale drone-based RGBT person detection benchmark RGBTDronePerson, which is the 
+								first to qualify spatial-time flexibility needed in search & rescue. The benchmark poses great 
+								challenges to existing algorithms. Additionally, we also build another drone-based RGBT person detection 
+								dataset VTUAV-det by labeling the VTUAV tracking dataset. </li>
+							<li> We propose a Quality-aware RGBT Fusion Detector (QFDet), which comprises QLS and QCE. QLS simultaneously 
+								leverages localization & classification and combines the strengths of prior & posterior knowledge, 
+								obtaining high-quality samples. QCE achieves complementary fusion by accessing cross-modality quality in 
+								a prediction-guided way. </li>
+							<li> Extensive experiments on RGBTDronePerson and VTUAV-det datasets are conducted to validate the 
+								effectiveness of the proposed method. Our QFDet remarkably boosts the detection performance over tiny and small
+								objects, surpassing the strong baseline on mAP<script type="math/tex">^{tiny}_{50}</script> by 6.57 points 
+								on RGBTDronePerson and mAP<script type="math/tex">_{s}</script> by 3.80 points on VTUAV-det.</li>							
+					</ul>
+
+				</p>
+				</td>
+			</tr>
+	<tr>
+		<td>
+			<h2 class="add-top-margin">RGBTDronePerson</h2>
+			<hr>
+		</td>
+	</tr>
+
+	<tr>
+        <td>
+            <h3 class="add-top-margin">Statistics</h3>
+            
+        </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div>
+        <img class="center" src="images/statistics.jpg" width="1000" /> <br>
+        <p class="image-caption">
+          Figure 3. Comparison between other multispectral object detection datasets. (a) Absolute and relative size comparison. (b) Number of 
+		  tiny objects comparison.
+        </p>				
+        </div>
+      </td>
+    </tr>
+
+    <tr>
+      <td>
+        <div>
+        <img class="center" src="images/instance_example.jpg" width="660" /> <br>
+        <p class="image-caption">
+          Figure 4. Instance examples. In the training set, there are 43,006 instances of ''person'', 4,869 instances of ''rider'', and 7,316 
+		  instances of ''crowd''.
+        </p>				
+        </div>
+      </td>
+    </tr>
+
+
+	  <tr>
+        <td>
+            <h3 class="add-top-margin">Download</h3>
+		1. RGBTDronePerson [<a href="https://github.com/NNNNerd/RGBTDronePerson" style="color: #0088CC">images and annotations</a>]<br>
+		2. VTUAV-det
+		[<a href="https://drive.google.com/drive/folders/1kBomGd7bu-9MiUDGmViHqmV9baN739iG?usp=sharing" style="color: #0088CC">sequences number, sample code, and annotations</a>]<br>
+<!--             1. AI-TOD
+			[<a href="https://drive.google.com/drive/folders/1mokzFtLCjyqalSEajYTUmyzXvOHAa4WX" style="color: #0088CC">images & annotations</a>]<br>
+			2. AI-TOD-v2
+			[<a href="https://drive.google.com/drive/folders/1mokzFtLCjyqalSEajYTUmyzXvOHAa4WX" style="color: #0088CC">images & annotations</a>]<br>
+			Note that the AI-TOD and AI-TOD-v2 share the image sets. -->
+        </td>
+     </tr>
+
+			<tr>
+				<td>
+						<h2 class="add-top-margin">Experimental Results</h2>
+						<hr>
+				</td>
+			</tr>
+
+			<tr>
+					<td>
+							<h3 class="add-top-margin">A Comparison of Different Methods on RGBTDronePerson</h3>
+							
+					</td>
+			</tr>
+					
+			<tr>
+				<td>
+					<div>
+					<img class="center" src="images/sota-dp.jpg" width="1000" /> <br>
+					<p class="image-caption">
+						Figure 5. Visualized detections on RGBTDronePerson comparing with state-of-the-art methods. Green boxes denote true 
+						positives, blue boxes denote false positives, and red boxes denote false negatives.
+					</p>				
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+						<h3 class="add-top-margin">A Comparison of Different Methods on VTUAV-det</h3>
+						
+				</td>
+		</tr>
+				
+		<tr>
+			<td>
+				<div>
+				<img class="center" src="images/sota-vtuav.jpg" width="1000" /> <br>
+				<p class="image-caption">
+					Figure 6. Visualized detections on VTUAV-det comparing with state-of-the-art methods. Green boxes denote true positives, 
+					blue boxes denote false positives, and red boxes denote false negatives.
+				</p>				
+				</div>
+			</td>
+		</tr>
+		<tr>
+				<td>
+						<h2 class="add-top-margin">Acknowledgements</h2>
+						<hr>
+						<p class="text" style="text-align:justify;"></p>
+						We would like to thank Haoran Zhu, Zijuan Chen, Yida Pan, Ziming Gui, Qinghua Yang, Yiyang Huang, Yanyin Guo, 
+						Xianping Wang, and Ruonan Zhang for their hard work in labeling. The numerical calculations were conducted on 
+						the supercomputing system in the Supercomputing Center, Wuhan University. The research was partially supported 
+						by the National Natural Science Foundation of China (NSFC) under Grants 62271355.
+						
+				</td>
+			</tr>
+		<tr>
+					<td>
+							<h2 class="add-top-margin">Citation</h2>
+							<hr>
+							<ol style="padding-inline-start:20px;">
+						<li>
+							<code>&lt;
+								@article{rgbtdroneperson,
+									title={drone-based {RGBT} tiny person detection},
+									author={Zhang, Yan and Xu, Chang and Yang, Wen and He, Guangjun and Yu, Huai and Yu, Lei and Xia, Gui-Song},
+									journal={},
+									volume={},
+									pages={},
+									year={},
+									publisher={}
+								}
+								&gt;</code> 
+						</li>
+							
+					</td>
+				</tr>
+				
+					
+			<br><br>
+		 </table>
+		 			
+		
+	<div class="footer">
+		<p class="block">&copy; 2023 by Yan Zhang at SPL, EIS, WHU</p>
+	</div>
+
+	</div>
+</div>
+</body>
+</html>
